@@ -52,7 +52,7 @@ session_start();
 		<div class="col-lg-offset-4 col-lg-4" id="box">
 
 			<center>
-			<h1 style="color: white">Inicio dsesion</h1>
+			<h1 style="color: white">Inicio de sesión</h1>
 			
 
 
