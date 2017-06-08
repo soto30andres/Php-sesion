@@ -21,7 +21,6 @@
 
 			$sql = "select * FROM usuario";
 			$resultado = mysqli_query($this->con, $sql);
-			echo "<pre>";
 			while($fila = $resultado->fetch_assoc()){
 
 				// $fila es un arreglo asociativo con todos los campos que se pusieron en el select
