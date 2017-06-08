@@ -60,30 +60,20 @@ session_start();
 			<form action="CheckLogin.php" method="post">
 				<div class="form-group">
 				
-					<input type="email" name="email" required class="form-control" placeholder="email">
+					<input type="email" name="email" required id="email" class="form-control" placeholder="email">
 
 				</div>
 
 				<div class="form-group">
 				
-					<input type="password" required name="password" class="form-control" placeholder="password">
+					<input type="password" required name="password" id="password" class="form-control" placeholder="password">
 
 				</div>
 				<center>
-					<p style="color:white">
-					<?php 
-
-						if(isset($_GET["a8d45a34das"])){
-
-							echo "Inicie sesion por favor";
-
-						}else if(isset($_GET["ashdkhuhka6846d4s5a4d64sq864d5a28w4a6532da88"])){
-
-							echo "Ingrese los datos correctamente";
-						}
-
-					?>
+					<p id="error" style="color:white">
+						
 					</p>
+					<br>
 				</center>
 				<br>
 				<button class="btn btn-primary" id="login">Enviar</button>
@@ -108,8 +98,46 @@ session_start();
 		
   		$(document).ready(function(){
 
-  			alert("hola");
-  		})
+  			$("form").submit(function(e){
+
+  				e.preventDefault();
+  				var email = $("#email").val();
+  				var password = $("#password").val();
+
+  				console.log(email);
+
+  				var data = {
+
+  					"email": email,
+  					"password": password
+  				};
+
+  				$.ajax({
+
+					data:data,
+					url:"CheckLogin.php",
+					type:"post",
+					
+
+				}).done(function(data){
+
+					console.log(data.trim());
+					if(data == 1){
+
+						location.href ="Usuarios.php";
+						 
+					}else{
+
+						$("#error").text("Por favor ingrese los datos correctamente");
+
+						$("#password").val("");
+					}
+
+				});
+
+  			});
+
+  		});
 
   	</script>
 </body>
