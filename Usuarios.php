@@ -26,7 +26,7 @@
 		
 		<div class="col-lg-12">
 			
-			<h1>Bienvenido <?php echo $_SESSION["sesion"][2] ?></h1>
+			<h1>Bienvenido: <b><?php echo ucwords($_SESSION["sesion"][2]) ?></b></h1>
 
 			<p>Estos son los usuarios: </p>
 
